@@ -21,3 +21,16 @@ test("throws error if argument isn't a valid string", () => {
   expect(() => functions.capitalize(45)).toThrow("Not a valid string");
   expect(() => functions.capitalize("")).toThrow("Not a valid string");
 });
+
+// tests for reverseString
+test("reverses a string", () => {
+  expect(functions.reverseString("abc")).toBe("cba");
+});
+
+test("throws error if argument isn't a string", () => {
+  expect(() => functions.reverseString(45)).toThrow("Not a string");
+});
+
+test("doesn't break if an empty string is passed", () => {
+  expect(functions.reverseString("")).toBe("");
+});
