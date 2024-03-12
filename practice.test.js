@@ -22,7 +22,7 @@ test("throws error if argument isn't a valid string", () => {
   expect(() => functions.capitalize("")).toThrow("Not a valid string");
 });
 
-// tests for reverseString
+// tests for reverseString()
 test("reverses a string", () => {
   expect(functions.reverseString("abc")).toBe("cba");
 });
@@ -33,4 +33,26 @@ test("throws error if argument isn't a string", () => {
 
 test("doesn't break if an empty string is passed", () => {
   expect(functions.reverseString("")).toBe("");
+});
+
+// tests for the calculator object
+test("tests for add()", () => {
+  expect(functions.calculator.add(1, 8)).toBe(9);
+  expect(functions.calculator.add(-1, 8)).toBe(7);
+});
+
+test("tests for subtract()", () => {
+  expect(functions.calculator.subtract(1, 8)).toBe(-7);
+  expect(functions.calculator.subtract(-1, 8)).toBe(-9);
+});
+
+test("tests for divide()", () => {
+  expect(functions.calculator.divide(2, 1)).toEqual(2);
+  expect(functions.calculator.divide(1, 2)).toBeCloseTo(0.5);
+  expect(functions.calculator.divide(1, 0)).toBe(Infinity);
+});
+
+test("tests for multiply()", () => {
+  expect(functions.calculator.multiply(2, 1)).toEqual(2);
+  expect(functions.calculator.multiply(-3, 0)).toBeCloseTo(0); // returns negative zero (-0)
 });
