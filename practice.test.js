@@ -1,3 +1,4 @@
+//const { default: test } = require("node:test");
 const functions = require("./practice");
 
 // tests for capitalize()
@@ -55,4 +56,21 @@ test("tests for divide()", () => {
 test("tests for multiply()", () => {
   expect(functions.calculator.multiply(2, 1)).toEqual(2);
   expect(functions.calculator.multiply(-3, 0)).toBeCloseTo(0); // returns negative zero (-0)
+});
+
+// tests for caesarCipher()
+test("correctly encrypts string", () => {
+  expect(functions.caesarCipher("abc", 3)).toBe("def");
+});
+
+test("correctly handles z-to-a wrapping", () => {
+  expect(functions.caesarCipher("yzab", 3)).toBe("bcde");
+});
+
+test("preserves case", () => {
+  expect(functions.caesarCipher("AbCd", 3)).toBe("DeFg");
+});
+
+test("preserves punctuation, symbols and whitespace", () => {
+  expect(functions.caesarCipher("(a, b, c)!", 3)).toBe("(d, e, f)!");
 });
