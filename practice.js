@@ -101,4 +101,32 @@ function caesarCipher(str, shift) {
   return newString;
 }
 
-module.exports = { capitalize, reverseString, calculator, caesarCipher };
+function analyzeArray(arr) {
+  let average;
+  let min = arr[0];
+  let max = arr[0];
+  let length = arr.length;
+
+  let total = 0;
+  for (let num of arr) {
+    if (num < min) min = num;
+    if (num > max) max = num;
+    total += num;
+  }
+  average = total / length;
+
+  return {
+    average,
+    min,
+    max,
+    length,
+  };
+}
+
+module.exports = {
+  capitalize,
+  reverseString,
+  calculator,
+  caesarCipher,
+  analyzeArray,
+};
